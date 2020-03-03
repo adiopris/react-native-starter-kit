@@ -1,4 +1,4 @@
-package com.templateapp;
+package ro.customsoft.template;
 
 import android.app.Application;
 import android.content.Context;

@@ -1,4 +1,4 @@
-package com.templateapp;
+package ro.customsoft.template;
 
 import com.facebook.react.ReactActivity;
 

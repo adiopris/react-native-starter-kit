@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "449278527860",
+    "firebase_url": "https://templateapp-31b86.firebaseio.com",
+    "project_id": "templateapp-31b86",
+    "storage_bucket": "templateapp-31b86.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:449278527860:android:2b980db3e51d339c97c421",
+        "android_client_info": {
+          "package_name": "ro.customsoft.template"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "449278527860-raq2mb8fc8728ssd5fth4ibovd98ssep.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCK__-PJKkGbXFLgjMQ5RbYYjtp4_H3mSo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "449278527860-raq2mb8fc8728ssd5fth4ibovd98ssep.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "449278527860-r3re8n39gfm1be2l0qb678jt9s1m0edf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ro.customsoft.template"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
