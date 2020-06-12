@@ -1,5 +1,4 @@
-import { NavigationActions } from 'react-navigation'
-
+import * as RootNavigation from '../Navigation/RootNavigation';
 // gets the current screen from navigation state
 const getCurrentRouteName = (navigationState) => {
   if (!navigationState) {
@@ -14,9 +13,10 @@ const getCurrentRouteName = (navigationState) => {
 }
 
 const screenTracking = ({ getState }) => next => (action) => {
+  console.tron.log(action);
   if (
-    action.type !== NavigationActions.NAVIGATE &&
-    action.type !== NavigationActions.BACK
+    action.type !== 'NAVIGATE' &&
+    action.type !== 'BACK'
   ) {
     return next(action)
   }

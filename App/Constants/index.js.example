@@ -1,0 +1,3 @@
+export default {
+  API_URL: 'http://api.template.localhost/v1/',
+};

@@ -1,8 +1,8 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce'
-
+import Constants from '../Constants'
 // our "constructor"
-const create = (baseURL = 'https://api.github.com/') => {
+const create = (baseURL = Constants.API_URL) => {
   // ------
   // STEP 1
   // ------
@@ -18,8 +18,21 @@ const create = (baseURL = 'https://api.github.com/') => {
     },
     // 10 second timeout...
     timeout: 10000
-  })
+  });
 
+  api.addRequestTransform(req => {
+    if (req.method === 'post') {
+      req.headers['Content-Type'] =
+        'application/x-www-form-urlencoded; charset=UTF-8';
+
+      if(req.data.access_token !== undefined) {
+        req.headers.Authorization = 'Bearer ' + req.data.access_token
+      }
+
+      req.data = qs.stringify(req.data)
+    }
+    return req
+  });
   // ------
   // STEP 2
   // ------
@@ -34,9 +47,8 @@ const create = (baseURL = 'https://api.github.com/') => {
   // Since we can't hide from that, we embrace it by getting out of the
   // way at this level.
   //
-  const getRoot = () => api.get('')
-  const getRate = () => api.get('rate_limit')
-  const getUser = (username) => api.get('search/users', {q: username})
+  const login = data => api.post('auth/login', data)
+  const register = data => api.post('auth/register', data)
 
   // ------
   // STEP 3
@@ -52,9 +64,8 @@ const create = (baseURL = 'https://api.github.com/') => {
   //
   return {
     // a list of the API functions from step 2
-    getRoot,
-    getRate,
-    getUser
+    login,
+    register
   }
 }
 
