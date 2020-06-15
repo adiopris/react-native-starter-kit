@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import "../Config";
 import DebugConfig from "../Config/DebugConfig";
 import React, { Component } from "react";

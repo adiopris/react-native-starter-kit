@@ -62,3 +62,4 @@ buck-out/
 .env
 android/.settings
 .idea
+/App/Constants/index.js
