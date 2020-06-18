@@ -7,6 +7,9 @@ import ReduxPersist from "../Config/ReduxPersist";
 /* ------------- Assemble The Reducers ------------- */
 export const reducers = combineReducers({
   user: require('./UserRedux').reducer,
+  register: require('./RegisterRedux').reducer,
+  resetPassword: require('./ResetPasswordRedux').reducer,
+  changePassword: require('./ChangePasswordRedux').reducer,
 });
 
 export default () => {

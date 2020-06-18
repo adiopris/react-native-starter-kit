@@ -61,6 +61,7 @@ export const logout = state => state.merge({data: null, payload: {}, error: fals
 export const reset = state => {
  return state.merge({data: null, payload: {}, error: false});
 }
+
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {

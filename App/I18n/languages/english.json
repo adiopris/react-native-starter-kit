@@ -22,5 +22,24 @@
    "themeSettings": "Theme Settings",
    "deviceDetails": "Device Details",
    "noItems": "No Items",
-   "search": "Search"
+   "search": "Search",
+  "header_signup_title": "Register title",
+  "header_signup_description": "Register description",
+  "header_login_title": "Login title",
+  "header_login_description": "Login description",
+  "forgot_password": "Forgot password",
+  "check_email_and_activate_account": "Check email and activate your account",
+  "or_log_in_using_social_media": "or login using social media",
+  "email": "Email",
+  "create_account": "Create account",
+  "or_create_account_using_social_media": "or create account using social media",
+  "terms_and_conditions": "Terms and conditions",
+  "password_repeat": "Password repeat",
+  "name": "Name",
+  "header_reset_password_description": "Reset password description",
+  "reset_password": "Reset password",
+  "repeat_new_password": "Repeat new password",
+  "confirm_change": "Confirm change",
+  "close": "Close"
+
 }

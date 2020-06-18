@@ -1,5 +1,6 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce'
+import qs from 'qs'
 import Constants from '../Constants'
 // our "constructor"
 const create = (baseURL = Constants.API_URL) => {
@@ -49,6 +50,11 @@ const create = (baseURL = Constants.API_URL) => {
   //
   const login = data => api.post('auth/login', data)
   const register = data => api.post('auth/register', data)
+  const socialLogin = data => api.post('auth/social-login', data)
+  const socialRegister = data => api.post('auth/social-register', data)
+  const reset_password = data => api.post('auth/reset-password', data.email)
+  const save_new_password = data => api.post('auth/save-new-password', data)
+  const changePassword = data => api.post('user/change-password', data)
 
   // ------
   // STEP 3
@@ -65,7 +71,12 @@ const create = (baseURL = Constants.API_URL) => {
   return {
     // a list of the API functions from step 2
     login,
-    register
+    register,
+    socialRegister,
+    socialLogin,
+    reset_password,
+    save_new_password,
+    changePassword,
   }
 }
 
