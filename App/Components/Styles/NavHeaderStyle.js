@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import Colors from '../../Themes/Colors';
 
-const textColor = Colors.violetTextAndLines;
+const textColor = Colors.darkText
 export default StyleSheet.create({
   container: {
     height: 70,
@@ -33,14 +33,14 @@ export default StyleSheet.create({
   },
   rightHeaderLink:{
     fontSize: 20,
-    color: Colors.blueText
+    color: Colors.darkText
   },
   nextIcon:{
     marginTop:10
   },
   rightHeaderText:{
     marginRight: 25,
-    color: Colors.blueText,
+    color: Colors.darkText,
     fontSize: 16,
   }
 });

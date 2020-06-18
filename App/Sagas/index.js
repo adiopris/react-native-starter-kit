@@ -7,10 +7,22 @@ import DebugConfig from "../Config/DebugConfig";
 
 import { StartupTypes } from "../Redux/StartupRedux";
 import {UserTypes} from '../Redux/UserRedux';
+import {ResetPasswordTypes} from '../Redux/ResetPasswordRedux';
+import {RegisterTypes} from '../Redux/RegisterRedux';
+import {SocialRegisterTypes} from '../Redux/SocialRegisterRedux';
+import {SocialLoginTypes} from '../Redux/SocialLoginRedux';
+import {ChangePasswordTypes} from '../Redux/ChangePasswordRedux';
+
 /* ------------- Sagas ------------- */
 
 import { startup } from "./StartupSagas";
 import {login, logout, reset} from './UserSagas';
+import {register} from './RegisterSagas';
+import {getSocialRegister} from './SocialRegisterSagas';
+import {getSocialLogin} from './SocialLoginSagas';
+import {getChangePassword} from './ChangePasswordSagas';
+import {resetPassword, saveNewPassword} from "./ResetPasswordSagas";
+
 /* ------------- API ------------- */
 
 // The API we use is only used from Sagas, so we create it here and pass along
@@ -26,5 +38,19 @@ export default function* root() {
     takeLatest(UserTypes.USER_REQUEST, login, api),
     takeLatest(UserTypes.USER_LOGOUT, logout),
     takeLatest(UserTypes.USER_RESET, reset),
+    takeLatest(ResetPasswordTypes.RESET_PASSWORD_REQUEST, resetPassword, api),
+    takeLatest(ResetPasswordTypes.SAVE_NEW_PASSWORD_REQUEST, saveNewPassword, api),
+    takeLatest(RegisterTypes.REGISTER_REQUEST, register, api),
+    takeLatest(
+      SocialRegisterTypes.SOCIAL_REGISTER_REQUEST,
+      getSocialRegister,
+      api,
+    ),
+    takeLatest(SocialLoginTypes.SOCIAL_LOGIN_REQUEST, getSocialLogin, api),
+    takeLatest(
+      ChangePasswordTypes.CHANGE_PASSWORD_REQUEST,
+      getChangePassword,
+      api,
+    ),
   ]);
 }

@@ -2,6 +2,7 @@ const colors = {
   background: '#1F0808',
   clear: 'rgba(0,0,0,0)',
   facebook: '#3b5998',
+  message: '#3b5998',
   transparent: 'rgba(0,0,0,0)',
   silver: '#F7F7F7',
   steel: '#CCCCCC',
@@ -20,6 +21,7 @@ const colors = {
   drawer: 'rgba(30, 30, 29, 0.95)',
   eggplant: '#251a34',
   border: '#483F53',
+  grayBorder: '#D8D8D8',
   banner: '#5F3E63',
   text: '#E0D7E5',
   darkText: '#595959'

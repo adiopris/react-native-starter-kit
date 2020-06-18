@@ -44,7 +44,6 @@ export default class NavHeader extends Component {
         </TouchableOpacity>
 
         <Text style = {styles.rightHeaderText}>don’t have an account?</Text>
-
       </View>
     );
   };
@@ -122,7 +121,6 @@ export default class NavHeader extends Component {
             <Text style = {[styles.titleText, {color: textColor}]}>{title}</Text>
           </View>
           {this.renderRightElement(scene)}
-
         </SafeAreaView>
       </View>
     );

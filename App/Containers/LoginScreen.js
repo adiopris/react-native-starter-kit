@@ -1,30 +1,86 @@
-import React, { Component } from 'react'
-import { ScrollView, Text, Image, View } from 'react-native'
-import { Images } from '../Themes'
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import I18n from '../I18n';
+import UserActions from '../Redux/UserRedux';
+import SocialLoginActions from '../Redux/SocialLoginRedux';
+import LoginForm from '../Components/LoginForm';
+import {Container, Content} from 'native-base';
+import ScreenSubHeader from "../Components/ScreenSubHeader";
 
-// Styles
-import styles from './Styles/LoginScreenStyles'
+class LoginScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      password: '',
+    };
+  }
+  componentDidMount() {
 
-export default class LoginScreen extends Component {
-  render () {
+    const {navigation} = this.props;
+    this.props.reset();
+    navigation.setOptions({
+      handleNext: () => navigation.navigate('Register'),
+      headerTitle: null
+    });
+  }
+
+  renderActivateAccountMessage = () => {
+    const {params} = this.props.route;
+    let error = null;
+    if(params !== undefined && 'needsToBeActivated' in params){
+      error = params.needsToBeActivated ? I18n.t('check_email_and_activate_account'): null;
+    }
+    return error;
+  };
+
+  renderSuccessActivationMessage = () => {
+    const {params} = this.props.route;
+    let message = null;
+    if(params !== undefined && 'message' in params){
+      message = params.message;
+    }
+    return message;
+  };
+
+  render() {
+    const {navigate} = this.props.navigation;
+
     return (
-      <View style={styles.mainContainer}>
-        <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
-        <ScrollView style={styles.container}>
-          <View style={styles.centered}>
-            <Image source={Images.launch} style={styles.logo} />
-          </View>
+      <Container>
+          <Content padder>
+            <ScreenSubHeader
+              title={I18n.t('header_login_title')}
+              description={I18n.t('header_login_description')}
+            />
 
-          <View style={styles.section} >
-            <Image source={Images.ready} />
-            <Text style={styles.sectionText}>
-              This probably isn't what your app is going to look like.
-              LOGIN SCREEN
-            </Text>
-          </View>
-
-        </ScrollView>
-      </View>
-    )
+            <LoginForm
+              auth={this.props.auth}
+              socialLogin={this.props.socialLogin}
+              fetching={this.props.fetching}
+              message={this.renderSuccessActivationMessage()}
+              apiError={this.props.error || this.renderActivateAccountMessage()}
+              onForgotPassword={() => navigate('ForgotPassword')}
+            />
+          </Content>
+      </Container>
+    );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    fetching: state.user.fetching,
+    error: (state.user.error ? state.user.payload.error : false),
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    auth: data => dispatch(UserActions.userRequest(data)),
+    socialLogin: data => dispatch(SocialLoginActions.socialLoginRequest(data)),
+    reset: data => dispatch(UserActions.userReset()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);
