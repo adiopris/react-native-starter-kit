@@ -4,7 +4,6 @@ import {Colors, Metrics} from '../../Themes/';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.topBarBg,
   },
   content: {
     paddingTop: Metrics.doubleBaseMargin,
@@ -19,7 +18,7 @@ export default StyleSheet.create({
     alignItems: 'center'
   },
   message: {
-    color: Colors.violetTextAndLines,
+    color: Colors.darkText,
     fontFamily: Metrics.baseFontFamily,
     fontSize: 17,
     paddingTop: 56,
@@ -27,7 +26,8 @@ export default StyleSheet.create({
     textAlign: 'center'
   },
   buttonSubmit:{
-
+    backgroundColor: Colors.background,
+    borderColor: Colors.background
   },
   buttonSubmitText: {
     marginTop: 15,
