@@ -4,11 +4,11 @@ import UserActions, {UserSelectors, UserTypes} from '../Redux/UserRedux';
 export function* login(api, action) {
   const {data} = action;
   const response = yield call(api.login, data);
-  console.tron.log('USER_REQUEST_RESPONSE', response);
+
   if (response.ok) {
     yield put(UserActions.userSuccess(response.data));
   } else {
-    let errorMessage = response.data.message;
+    let errorMessage = response.data.error;
 
     if(response.status === 500){
       errorMessage = 'System failure';
