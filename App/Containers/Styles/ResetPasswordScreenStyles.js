@@ -50,7 +50,9 @@ export default StyleSheet.create({
   buttonSubmit:{
     position:'absolute',
     right: -10,
-    bottom: 0
+    bottom: 0,
+    backgroundColor: Colors.background,
+    borderColor: Colors. background
   },
   buttonSubmitText: {
     marginTop: 15,

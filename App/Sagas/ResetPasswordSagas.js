@@ -19,6 +19,7 @@ export function* resetPassword(api, action) {
 }
 export function* saveNewPassword(api, action) {
   const {data} = action;
+  console.tron.log('RESET_PASSWORD_SAGAS', data);
   const response = yield call(api.save_new_password, data);
   if (response.ok) {
     yield put(ResetPasswordActions.resetPasswordSuccess(response.data));

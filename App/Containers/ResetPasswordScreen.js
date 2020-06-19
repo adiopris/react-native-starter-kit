@@ -71,7 +71,7 @@ class ResetPasswordScreen extends Component {
             paddingTop: 50
           }}>
             <ScreenSubHeader
-              description={'Enter your personal data below to log in and start trading'}
+              description={'Enter your personal data below to log in'}
             />
             <KeyboardAvoidingView
               behavior="padding"
@@ -115,7 +115,7 @@ class ResetPasswordScreen extends Component {
                         />
                       </View>
                       <View style={styles.textPasswordConstraintsBox}>
-                          <Text style={[styles.mb15, styles.constraintsItem]}>Passwords must be at least 8 characters long.</Text>
+                          <Text style={[styles.mb15, styles.constraintsItem]}>Passwords must be at least 5 characters long.</Text>
                           <Text style={[styles.mb15, styles.constraintsItem]}>The password must contain at least three character categories among the following:</Text>
                           <Text style={styles.constraintsItem}>- Uppercase characters (A-Z)</Text>
                           <Text style={styles.constraintsItem}>- Lowercase characters (a-z)</Text>

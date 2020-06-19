@@ -29,10 +29,12 @@ class RootContainer extends Component {
   navigate = url => {
     const urlParts = url.split('/');
 
-    if (urlParts[4].includes('reset-password')) {
-      let parts = urlParts[4].split('?');
+    if (urlParts[3].includes('reset-password')) {
+
+      let parts = urlParts[3].split('?');
       let tokenKeyValue = parts[1].split('=');
       RootNavigation.navigate('ResetPassword', {token: tokenKeyValue[1]});
+
     } else {
       RootNavigation.navigate('Login');
     }
