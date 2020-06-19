@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import NavHeader from '../Components/NavHeader';
 import LaunchScreen from "../Containers/LaunchScreen";
+import MenuScreen from "../Containers/MenuScreen";
+import ProfileScreen from "../Containers/ProfileScreen";
 
 const Stack = createStackNavigator();
 
@@ -34,6 +36,16 @@ export default class DemoNav extends Component {
           name="Launch"
           component={LaunchScreen}
           options={{...screenOptions, headerTitle: 'Demo'}}
+        />
+        <Stack.Screen
+          name="Menu"
+          component={MenuScreen}
+          options={{...screenOptions, headerTitle: 'Menu'}}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={ProfileScreen}
+          options={{...screenOptions, headerTitle: 'Profile'}}
         />
       </Stack.Navigator>
     );

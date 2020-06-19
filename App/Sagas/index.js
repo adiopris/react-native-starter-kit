@@ -12,6 +12,7 @@ import {RegisterTypes} from '../Redux/RegisterRedux';
 import {SocialRegisterTypes} from '../Redux/SocialRegisterRedux';
 import {SocialLoginTypes} from '../Redux/SocialLoginRedux';
 import {ChangePasswordTypes} from '../Redux/ChangePasswordRedux';
+import {ProfileTypes} from "../Redux/ProfileRedux";
 
 /* ------------- Sagas ------------- */
 
@@ -22,6 +23,8 @@ import {getSocialRegister} from './SocialRegisterSagas';
 import {getSocialLogin} from './SocialLoginSagas';
 import {getChangePassword} from './ChangePasswordSagas';
 import {resetPassword, saveNewPassword} from "./ResetPasswordSagas";
+import {fetchProfile} from "./ProfileSagas";
+import {saveProfile} from "./ProfileSagas";
 
 /* ------------- API ------------- */
 
@@ -52,5 +55,7 @@ export default function* root() {
       getChangePassword,
       api,
     ),
+    takeLatest(ProfileTypes.FETCH_PROFILE_REQUEST, fetchProfile, api),
+    takeLatest(ProfileTypes.SAVE_PROFILE_REQUEST, saveProfile, api),
   ]);
 }

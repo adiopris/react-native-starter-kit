@@ -33,6 +33,12 @@ export const UserSelectors = {
     }
     return state.user.payload.access_token;
   },
+  getUserId: state => {
+    if (!state.user.payload) {
+      return null;
+    }
+    return state.user.payload.success.id;
+  },
   isGuest: state => {
     return isEmpty(state.user.payload) || state.user.error;
   },
