@@ -40,6 +40,11 @@
   "reset_password": "Reset password",
   "repeat_new_password": "Repeat new password",
   "confirm_change": "Confirm change",
-  "close": "Close"
+  "close": "Close",
+  "new_password": "New password",
+  "repeat_password": "Repeat password",
+  "request_new_reset_password": "Request new reset password",
+  "missing_reset_password_token": "Missing reset password token",
+
 
 }
