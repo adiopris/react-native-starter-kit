@@ -5,6 +5,8 @@ import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
 import styles from './Styles/NavHeaderStyle';
 import NextIcon from '../Images/svgs/next-arrow.svg';
 import Colors from '../Themes/Colors';
+import MenuIcon from '../Images/svgs/icon-menu-dark.svg';
+import CloseMenuIconDark from '../Images/svgs/icon-menu-close-dark.svg';
 import I18n from '../I18n';
 
 /**
@@ -74,6 +76,45 @@ export default class NavHeader extends Component {
     );
   };
 
+  renderMenuIcon() {
+    return (
+      <View>
+        <TouchableOpacity
+          onPress = {() => {this.props.navigation.navigate('Menu')}}
+          style = {styles.rightHeaderLinkBox}
+        >
+          <MenuIcon />
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
+  renderCloseMenuItem() {
+    return (
+      <View>
+        <TouchableOpacity
+          onPress = {() => {this.props.navigation.goBack()}}
+          style = {styles.rightHeaderLinkBox}
+        >
+          <CloseMenuIconDark />
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
+  renderBackToMenuIcon() {
+    let options = this.getOptions();
+    return (
+      <View>
+        <TouchableOpacity
+          onPress = {() => {this.props.navigation.navigate('Menu')}}
+          style = {[styles.rightHeaderLinkBox]}
+        >
+          <CloseMenuIconDark />
+        </TouchableOpacity>
+      </View>
+    );
+  }
 
 
   renderRightElement = scene => {
@@ -87,18 +128,19 @@ export default class NavHeader extends Component {
       return this.renderLoginRightElement(options);
     } else if (scene.route.name === 'Register') {
       return this.renderRegisterRightElement(options);
+    } else if (scene.route.name === 'Menu') {
+      return this.renderCloseMenuItem();
     }
 
     if (options.backToMenu === true) {
-      //return this.renderBackToMenuIcon();
+      return this.renderBackToMenuIcon();
     }
 
     if(options.rightElement === false) {
       return null;
     }
 
-    //return this.renderMenuIcon();
-
+    return this.renderMenuIcon();
 
   };
 

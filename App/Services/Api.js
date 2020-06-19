@@ -55,6 +55,8 @@ const create = (baseURL = Constants.API_URL) => {
   const reset_password = data => api.post('auth/reset-password', data.email)
   const save_new_password = data => api.post('auth/save-new-password', data)
   const changePassword = data => api.post('user/change-password', data)
+  const fetchProfile = data => api.get('user/profile/' + data.success.id)
+  const saveProfile = data => api.post('user/profile/' + data.user_id , data)
 
   // ------
   // STEP 3
@@ -77,6 +79,8 @@ const create = (baseURL = Constants.API_URL) => {
     reset_password,
     save_new_password,
     changePassword,
+    fetchProfile,
+    saveProfile
   }
 }
 

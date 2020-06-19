@@ -10,6 +10,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import NavHeader from '../Components/NavHeader';
 const Stack = createStackNavigator();
 import I18n from "../I18n";
+import MenuScreen from "../Containers/MenuScreen";
+import ProfileScreen from "../Containers/ProfileScreen";
 
 let screenOptions = {
   animationEnabled: false,
@@ -63,6 +65,7 @@ export default class AuthStack extends Component {
         <Stack.Screen name = "ChangePassword" component = {ChangePasswordScreen} />
         <Stack.Screen name = "ChangePasswordConfirm" component = {ChangePasswordConfirmScreen} />
         <Stack.Screen name = "Register" component = {RegisterScreen} options = {screenOptions} />
+
       </Stack.Navigator>
     );
   }

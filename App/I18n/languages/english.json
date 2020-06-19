@@ -40,6 +40,9 @@
   "reset_password": "Reset password",
   "repeat_new_password": "Repeat new password",
   "confirm_change": "Confirm change",
-  "close": "Close"
+  "close": "Close",
+  "menu": "Menu",
+  "profile": "Profile",
+  "update_profile": "Update Profile"
 
 }
