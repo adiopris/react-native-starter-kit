@@ -1,7 +1,7 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce'
 import qs from 'qs'
-import Constants from '../Constants/index'
+import Constants from '../Constants/index.js'
 // our "constructor"
 const create = (baseURL = Constants.API_URL) => {
   // ------
