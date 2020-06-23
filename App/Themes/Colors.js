@@ -24,7 +24,8 @@ const colors = {
   grayBorder: '#D8D8D8',
   banner: '#5F3E63',
   text: '#E0D7E5',
-  darkText: '#595959'
+  darkText: '#595959',
+  cameraBackground: '#CCCCCC'
 }
 
 export default colors

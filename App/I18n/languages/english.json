@@ -40,6 +40,13 @@
   "reset_password": "Reset password",
   "repeat_new_password": "Repeat new password",
   "confirm_change": "Confirm change",
-  "close": "Close"
+  "close": "Close",
+  "header_camera_title": "Camera",
+  "header_camera_description": "Camera description",
+  "header_confirm_photo_title": "Confirm photo",
+  "header_confirm_photo_description": "Confirm photo description",
+  "header_gallery_title": "Gallery",
+  "header_gallery_description": "Gallery description"
+
 
 }

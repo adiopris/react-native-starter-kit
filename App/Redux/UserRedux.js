@@ -31,7 +31,7 @@ export const UserSelectors = {
     if (!state.user.payload) {
       return null;
     }
-    return state.user.payload.access_token;
+    return state.user.payload.success.token;
   },
   isGuest: state => {
     return isEmpty(state.user.payload) || state.user.error;

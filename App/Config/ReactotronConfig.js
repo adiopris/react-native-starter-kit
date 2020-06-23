@@ -3,10 +3,12 @@ import Immutable from 'seamless-immutable'
 import Reactotron from 'reactotron-react-native'
 import { reactotronRedux as reduxPlugin } from 'reactotron-redux'
 import sagaPlugin from 'reactotron-redux-saga'
+import {AsyncStorage} from "react-native";
 
 const reactotron = Reactotron
     .configure({ name: 'Ignite App' })
     .useReactNative()
+    .setAsyncStorageHandler(AsyncStorage)
     .use(reduxPlugin({ onRestore: Immutable }))
     .use(sagaPlugin())
 

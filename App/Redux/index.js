@@ -10,6 +10,7 @@ export const reducers = combineReducers({
   register: require('./RegisterRedux').reducer,
   resetPassword: require('./ResetPasswordRedux').reducer,
   changePassword: require('./ChangePasswordRedux').reducer,
+  photo: require('./PhotoRedux').reducer
 });
 
 export default () => {

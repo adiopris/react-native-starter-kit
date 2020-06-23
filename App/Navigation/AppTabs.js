@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { Colors, Metrics } from '../Themes'
 import DemoNav from "./DemoNav";
+import CameraNav from "./CameraNav";
+import GalleryNav from "./GalleryNav";
 
 const Tab = createBottomTabNavigator();
 export default class AppTabs extends Component {
@@ -23,14 +25,14 @@ export default class AppTabs extends Component {
           },
         }}>
         <Tab.Screen
-          name="Tab1"
-          component={DemoNav}
-          options={{title: 'Tab 1'}}
+          name="Camera"
+          component={CameraNav}
+          options={{title: 'Camera'}}
         />
         <Tab.Screen
-          name="Tab2"
-          component={DemoNav}
-          options={{title: 'Tab 2'}}
+          name="Gallery"
+          component={GalleryNav}
+          options={{title: 'Galerie'}}
         />
         <Tab.Screen
           name="Tab3"

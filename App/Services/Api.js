@@ -2,6 +2,8 @@
 import apisauce from 'apisauce'
 import qs from 'qs'
 import Constants from '../Constants'
+import _ from "lodash";
+
 // our "constructor"
 const create = (baseURL = Constants.API_URL) => {
   // ------
@@ -29,8 +31,11 @@ const create = (baseURL = Constants.API_URL) => {
       if(req.data.access_token !== undefined) {
         req.headers.Authorization = 'Bearer ' + req.data.access_token
       }
-
-      req.data = qs.stringify(req.data)
+      if(req.data.isMultipart !== undefined && req.data.isMultipart) {
+        req.headers['Content-Type'] = 'multipart/form-data';
+      }
+      // req.data = qs.stringify(_.omit(req.data, ['access_token', 'isMultipart']));
+      req.data = _.omit(req.data, ['access_token', 'isMultipart']);
     }
     return req
   });
@@ -55,7 +60,7 @@ const create = (baseURL = Constants.API_URL) => {
   const reset_password = data => api.post('auth/reset-password', data.email)
   const save_new_password = data => api.post('auth/save-new-password', data)
   const changePassword = data => api.post('user/change-password', data)
-
+  const savePhoto = data => api.post('photo/save', data);
   // ------
   // STEP 3
   // ------
@@ -77,6 +82,7 @@ const create = (baseURL = Constants.API_URL) => {
     reset_password,
     save_new_password,
     changePassword,
+    savePhoto
   }
 }
 

@@ -12,6 +12,7 @@ import {RegisterTypes} from '../Redux/RegisterRedux';
 import {SocialRegisterTypes} from '../Redux/SocialRegisterRedux';
 import {SocialLoginTypes} from '../Redux/SocialLoginRedux';
 import {ChangePasswordTypes} from '../Redux/ChangePasswordRedux';
+import {PhotoTypes} from '../Redux/PhotoRedux';
 
 /* ------------- Sagas ------------- */
 
@@ -22,6 +23,7 @@ import {getSocialRegister} from './SocialRegisterSagas';
 import {getSocialLogin} from './SocialLoginSagas';
 import {getChangePassword} from './ChangePasswordSagas';
 import {resetPassword, saveNewPassword} from "./ResetPasswordSagas";
+import {savePhoto} from "./PhotoSagas";
 
 /* ------------- API ------------- */
 
@@ -52,5 +54,6 @@ export default function* root() {
       getChangePassword,
       api,
     ),
+    takeLatest(PhotoTypes.SAVE_PHOTO_REQUEST, savePhoto, api),
   ]);
 }
